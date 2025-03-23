@@ -175,7 +175,7 @@ header {
   margin: 0 auto; /* Centers the image */
 }
 
-@media (max-width: 568px) {
+@media (max-width: 768px) {
   .profile-image {
     max-width: 100px;
     height: 100px;
@@ -504,7 +504,7 @@ form {
   width: 90%; /* Ensure it doesn’t stretch too much */
   max-width: 400px;
   margin: auto; /* Centering */
-  padding: 20px;
+  padding: 10px;
 
   margin-top: 5%;
 }
@@ -585,12 +585,12 @@ form .state{
       transition-delay: .25s;
   }
 
-  .home-imgHover{
+  /* .home-imgHover{
       pointer-events: none;
       background: var(--bg-color);
       opacity: .6;
 
-  }
+  } */
 }
 
 @media (max-width : 520px) {
