@@ -25,6 +25,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
   sections.forEach((section) => observer.observe(section));
 
+//   document.addEventListener("DOMContentLoaded", function () {
+//     const menuToggle = document.querySelector(".menu-toggle");
+//     const navMenu = document.querySelector(".nav");
+
+//     menuToggle.addEventListener("click", function () {
+//         navMenu.classList.toggle("show");
+//     });
+// });
+
+
   // ✅ Typing Effect
   const typingElements = document.querySelectorAll(".text-typing");
   const typingObserver = new IntersectionObserver(

@@ -28,8 +28,8 @@
         <svg class="bi me-2" width="40" height="32"></svg>
         <span class="fs-3 lato-bold"><span id="head-name">Pooja</span> Hegde</span>
       </a>
-
-      <ul class="nav nav-pills">
+      <button class="menu-toggle">&#9776;</button>
+      <ul class="nav nav-pills" id="navMenu">
         <li class="nav-item lato-bold">
           <a href="#section-1" class="nav-link text-white" aria-current="page">Home</a>
         </li>
@@ -49,6 +49,7 @@
           <a href="#section-6" class="nav-link text-white">Contact</a>
         </li>
       </ul>
+     
     </header>
 
     <section class="section-1 home" id="section-1">
@@ -122,7 +123,7 @@
   </section>
 
   <section class="section-3" id="section-3">
-    <h1 class="lato-black text-typing" data-text="Education"></h1>
+    <h1 class="lato-black text-typing" align="center" data-text="Education"></h1>
     <div class="education-1">
       <h2>Nitte Meenakshi Institute Of Technology, Banglore</h2>
       <span class="material-symbols-outlined calender">
@@ -222,11 +223,7 @@
     <h1 class="lato-black h1 text-typing" data-text="Projects" align="center"></h1>
     <div class="sec-2 p-5 mb-4 bg-body-dark rounded-3 text-white" style="background-color: #024163">
       <div class="container-fluid py-5">
-        <h1 class="display-3 fw-bold" style="
-                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman',
-                  serif;
-                font-size: 50px;
-              ">
+        <h1 class="display-3 fw-bold ">
           Heart Disease Prediction
         </h1>
         <p class="col-md-8 fs-4">
@@ -310,6 +307,40 @@
       </div>
     </footer>
   </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navMenu = document.getElementById("navMenu"); 
+    const header = document.querySelector("header"); // Select header for sticky positioning
+
+    console.log("Script Loaded!"); // Debugging message
+
+    if (!menuToggle || !navMenu) {
+        console.error("Elements not found:", menuToggle, navMenu);
+        return;
+    }
+
+    // Toggle menu when clicking the button
+    menuToggle.addEventListener("click", function () {
+        console.log("Menu button clicked!");  
+        navMenu.classList.toggle("show");   // Toggle menu visibility
+    });
+
+    // Close menu when a link is clicked
+    document.querySelectorAll("#navMenu a").forEach(link => {
+        link.addEventListener("click", function () {
+            navMenu.classList.remove("show");
+        });
+    });
+
+    // Ensure the header remains sticky
+    header.style.position = "sticky";
+    header.style.top = "0";
+    header.style.width = "100%";
+    header.style.zIndex = "1000"; // Keep it above other elements
+});
+
+    </script>
   <script src="./js/portfolio.js"></script>
 </body>
 
