@@ -1,9 +1,14 @@
 body {
   background-color: #022d44;
-  overflow-y: scroll;
+  overflow-y: auto;
   scroll-behavior: smooth;
   overflow-x: hidden;
-  height: auto;
+  height: 100%;
+  width: 100%;
+ 
+    min-height: 100vh;
+   
+  
 
 }
 
@@ -47,15 +52,15 @@ header {
   color: black !important;
   border-radius: 5px;
 }
-
+section {
+  padding: 20px 15px; /* Adjust padding */
+}
 .container {
   width: 100%;
   max-width: 1200px;
-  margin: auto;
-  padding: 10px;
+  margin: 0 auto;
+
 }
-
-
 
 .lato-bold {
   font-family: "Lato", serif;
@@ -86,32 +91,15 @@ footer{
   bottom: 0;
   width: 100%;
 }
-#scrollUpBtn{
-  display: none;
-  position: absolute;
-  right: 20px;
-  bottom: 0px;
-  width: 50px;
-  height: 50px;
-  background-color: #47b5f0;
-  color: #000000;
-  border: none;
-  border-radius: 15px;
-  font-size: 18px;
-  cursor: pointer;
-  
-}
 @media  screen and (max-width:768px) {
   #scrollUpBtn{
     display: block;
   }
-  body{
-    overflow-y: scroll;
-    overflow-x: hidden;
-  }
-  footer{
+  footer {
     position: relative;
-  }
+    padding: 15px 10px;
+    z-index: 10;
+} 
   
 }
 .lato-thin {
@@ -154,22 +142,22 @@ footer{
     background-position: 0 0;
   }
 
-  /* Fill effect */
+  
   100% {
     background-position: 0 0;
   }
 
-  /* Hold fill */
+
 }
 
-/* First line typing */
+
 .typing-effect {
   font-size: 3rem;
   font-weight: bold;
   display: inline-block;
   white-space: nowrap;
   border-right: 5px solid cyan;
-  /* Cursor effect */
+  
   overflow: hidden;
   width: 0;
   animation: typing 4s steps(20, end) infinite, blink 0.6s infinite;
@@ -183,22 +171,19 @@ footer{
   white-space: nowrap;
   overflow: hidden;
   width: 0;
-
-  color: transparent;
+   color: transparent;
   -webkit-text-stroke: 1px cyan;
-  /* Outline text */
   background: linear-gradient(to right, cyan 50%, white 50%);
   background-clip: text;
   -webkit-background-clip: text;
-
-  animation: typing 6s steps(20, end) infinite, fillText 4s infinite,
+animation: typing 6s steps(20, end) infinite, fillText 4s infinite,
     blink 0.6s infinite;
   animation-delay: 2s;
   /* Start after first line */
 }
 @media screen  and (max-width:768px){
   footer{
-    position: fixed;
+    visibility: hidden;
   }
 }
 .sec-1 {
@@ -227,10 +212,9 @@ footer{
   display: block;
   overflow: hidden;
   width: 0;
-  /* Start hidden */
-  /* Cursor effect */
+  
   white-space: normal;
-  /* Allows text to wrap */
+ 
 
   animation: typing 2s steps(20, end) forwards;
 }
@@ -241,13 +225,13 @@ footer{
 @keyframes slideInFromRight {
   from {
     transform: translateX(100%);
-    /* Start from the right */
+  
     opacity: 0;
   }
 
   to {
     transform: translateX(0);
-    /* Move to final position */
+  
     opacity: 1;
   }
 }
@@ -261,26 +245,25 @@ footer{
 }
 
 .animated-image {
-  /* width: 350px; Adjust as needed */
-  /* height: 500px; */
+  
   position: absolute;
   margin-top: 10%;
   right: 50px;
-  /* Adjust position */
+ 
   bottom: 50px;
-  /* Adjust position */
+  
   border-radius: 50%;
   box-shadow: 10px 10px 12px 12px #000000;
   animation: slideInFromRight 1.5s ease-out forwards;
-  /* Moves from right */
+  
   transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
   width: 100%;
-  /* Adjusts automatically */
+ 
   max-width: 300px;
-  /* Prevents it from getting too large */
+ 
   height: auto;
   display: block;
-  /* margin: 0 auto; Centers the image */
+  
 }
 
 
@@ -590,6 +573,10 @@ footer{
 form {
   display: flex;
 }
+.form-container {
+  max-height: 80vh;
+  overflow-y: auto;
+}
 
 .contact-form {
   color: antiquewhite;
@@ -602,6 +589,7 @@ form {
   height: auto;
   position: relative;
   width: 90%;
+  min-height: 100vh;
   /* Ensure it doesn’t stretch too much */
   max-width: 400px;
  
