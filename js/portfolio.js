@@ -25,46 +25,38 @@ document.addEventListener("DOMContentLoaded", function () {
 
   sections.forEach((section) => observer.observe(section));
 
-//   document.addEventListener("DOMContentLoaded", function () {
-//     const menuToggle = document.querySelector(".menu-toggle");
-//     const navMenu = document.querySelector(".nav");
+  //  Typing Effect
+ 
+    const typingElements = document.querySelectorAll(".text-typing");
+    const typingObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                if (!entry.target.classList.contains("typed")) {  // Prevent multiple executions
+                    startTyping(entry.target);
+                    entry.target.classList.add("typed");  // Mark as typed
+                }
+            }
+           
+        });
+    }, { threshold: 0.5 });
 
-//     menuToggle.addEventListener("click", function () {
-//         navMenu.classList.toggle("show");
-//     });
-// });
+    typingElements.forEach((element) => typingObserver.observe(element));
 
+    function startTyping(element) {
+        const text = element.getAttribute("data-text");
+        let index = 0;
+        element.textContent = "";
 
-  // ✅ Typing Effect
-  const typingElements = document.querySelectorAll(".text-typing");
-  const typingObserver = new IntersectionObserver(
-      (entries) => {
-          entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                  startTyping(entry.target);
-              }
-          });
-      },
-      { threshold: 0.5 }
-  );
+        function type() {
+            if (index < text.length) {
+                element.textContent += text[index];
+                index++;
+                setTimeout(type, 100);
+            }
+        }
 
-  typingElements.forEach((element) => typingObserver.observe(element));
-
-  function startTyping(element) {
-      const text = element.getAttribute("data-text");
-      let index = 0;
-      element.textContent = "";
-
-      function type() {
-          if (index < text.length) {
-              element.textContent += text[index];
-              index++;
-              setTimeout(type, 100);
-          }
-      }
-
-      type();
-  }
+        type();
+    }
 
   // ✅ Redirect to Home on Refresh
   if (performance.navigation.type === 1) {
@@ -110,10 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
           // Create error message
           const error = document.createElement("div");
           error.className = "error-message";
-          error.style.cssText = `
-              
-            
-              padding: 8px;
+          error.style.cssText = `padding: 8px;
             font-size: 14px;
   text-align: center;
   margin-top: 5px;
@@ -179,4 +168,12 @@ document.addEventListener("DOMContentLoaded", function () {
       option.textContent = state;
       stateDropdown.appendChild(option);
   });
+
+  function scrolltoTop(){
+    document.querySelector('section:first-of-type').scrollIntoView(
+        {
+            behavior:'smooth'
+        }
+    )
+  }
 });

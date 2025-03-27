@@ -1,5 +1,9 @@
 body {
   background-color: #022d44;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  height: auto;
 
 }
 
@@ -74,7 +78,42 @@ header {
 
   color: rgba(238, 225, 225, 0.932);
 }
-
+footer{
+  position: relative;
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  bottom: 0;
+  width: 100%;
+}
+#scrollUpBtn{
+  display: none;
+  position: absolute;
+  right: 20px;
+  bottom: 0px;
+  width: 50px;
+  height: 50px;
+  background-color: #47b5f0;
+  color: #000000;
+  border: none;
+  border-radius: 15px;
+  font-size: 18px;
+  cursor: pointer;
+  
+}
+@media  screen and (max-width:768px) {
+  #scrollUpBtn{
+    display: block;
+  }
+  body{
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  footer{
+    position: relative;
+  }
+  
+}
 .lato-thin {
   font-family: "Lato", serif;
   font-weight: 900;
@@ -157,7 +196,11 @@ header {
   animation-delay: 2s;
   /* Start after first line */
 }
-
+@media screen  and (max-width:768px){
+  footer{
+    position: fixed;
+  }
+}
 .sec-1 {
   font-size: 20px;
   height: 200px;
