@@ -3,46 +3,46 @@ document.addEventListener("DOMContentLoaded", function () {
   const sections = document.querySelectorAll("section");
   const navLinks = document.querySelectorAll(".nav-link");
 
-//   const observer = new IntersectionObserver(
-//       (entries) => {
-//           entries.sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+  const observer = new IntersectionObserver(
+      (entries) => {
+          entries.sort((a, b) => b.intersectionRatio - a.intersectionRatio);
 
-//           let mostVisible = entries.find((entry) => entry.isIntersecting);
-//           if (mostVisible) {
-//               navLinks.forEach((link) => link.classList.remove("active"));
-//               const targetId = mostVisible.target.getAttribute("id");
-//               const activeLink = document.querySelector(`.nav-link[href="#${targetId}"]`);
-//               if (activeLink) {
-//                   activeLink.classList.add("active");
-//               }
-//               else{
-//                 console.warn(`no match navlink found for:$targetId}`);
-//               }
-//           }
-//       },
-//       { rootMargin:"0px", threshold: [0.3,0.5,0.7] }
-//   );
+          let mostVisible = entries.find((entry) => entry.isIntersecting);
+          if (mostVisible) {
+              navLinks.forEach((link) => link.classList.remove("active"));
+              const targetId = mostVisible.target.getAttribute("id");
+              const activeLink = document.querySelector(`.nav-link[href="#${targetId}"]`);
+              if (activeLink) {
+                  activeLink.classList.add("active");
+              }
+              else{
+                console.warn(`no match navlink found for:$targetId}`);
+              }
+          }
+      },
+      { rootMargin:"0px", threshold: [0.3,0.5,0.7] }
+  );
 
-//   sections.forEach((section) => observer.observe(section));
-let lastActive = null;  // Store last active section
+  sections.forEach((section) => observer.observe(section));
+// let lastActive = null;  // Store last active section
 
-const observer = new IntersectionObserver(
-    (entries) => {
-        entries.sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+// const observer = new IntersectionObserver(
+//     (entries) => {
+//         entries.sort((a, b) => b.intersectionRatio - a.intersectionRatio);
 
-        let mostVisible = entries.find((entry) => entry.isIntersecting);
-        if (mostVisible && lastActive !== mostVisible.target.id) {
-            lastActive = mostVisible.target.id; // Prevents unnecessary updates
-            navLinks.forEach((link) => link.classList.remove("active"));
-            const targetId = mostVisible.target.getAttribute("id");
-            const activeLink = document.querySelector(`.nav-link[href="#${targetId}"]`);
-            if (activeLink) {
-                activeLink.classList.add("active");
-            }
-        }
-    },
-    { rootMargin: "0px 0px -50% 0px", threshold: [0.2, 0.4, 0.6] }
-);
+//         let mostVisible = entries.find((entry) => entry.isIntersecting);
+//         if (mostVisible && lastActive !== mostVisible.target.id) {
+//             lastActive = mostVisible.target.id; // Prevents unnecessary updates
+//             navLinks.forEach((link) => link.classList.remove("active"));
+//             const targetId = mostVisible.target.getAttribute("id");
+//             const activeLink = document.querySelector(`.nav-link[href="#${targetId}"]`);
+//             if (activeLink) {
+//                 activeLink.classList.add("active");
+//             }
+//         }
+//     },
+//     { rootMargin: "0px 0px -50% 0px", threshold: [0.2, 0.4, 0.6] }
+// );
 
 
   //  Typing Effect

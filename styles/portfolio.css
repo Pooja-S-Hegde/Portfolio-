@@ -52,6 +52,11 @@ header {
   color: black !important;
   border-radius: 5px;
 }
+.nav-item:active {
+  background-color: rgb(56, 86, 223);
+  color: black !important;
+  border-radius: 5px;
+}
 section {
   padding: 20px 15px; /* Adjust padding */
 }
