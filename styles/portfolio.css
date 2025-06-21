@@ -1613,6 +1613,23 @@ form {
     transform: translateY(-5px);
 }
 
+/* Error message styles */
+.error-message {
+    color: #ffffff;
+    font-size: 0.9rem;
+    margin: 5px 0 0 2px;
+    font-weight: 400;
+    display: block;
+    text-align: left;
+    font-family: 'Lato', sans-serif;
+    text-shadow: 
+        -1px -1px 0 #ff0000,
+        1px -1px 0 #ff0000,
+        -1px 1px 0 #ff0000,
+        1px 1px 0 #ff0000;
+    letter-spacing: 0.5px;
+}
+
 .contact-form input,
 .contact-form select,
 .contact-form textarea {
