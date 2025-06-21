@@ -56,20 +56,19 @@
     </header>
 
     <section class="section-1 home" id="section-1">
-      <h1 class="lato-black text-typing  name-text" data-text="Hi!.. I Am Pooja Hegde"></h1>
-      <h1 class="filling-text lato-black desc-text">Tech Enthusiast</h1>
-
-      <div class="sec-1 1.0">
-        <p class="main">
-          Welcome to my personal portfolio! I'm an ambitious student dedicated
-          to pursuing excellence. Here, you'll find a showcase of my academic
-          achievements, and a glimpse into my journey of growth and learning.
-          Join me as I navigate the exciting world of education and
-          self-discovery.
-        </p>
+      <div class="profile-row">
+        <div class="profile-headings">
+          <h1 class="lato-black name-text">Hi!.. I Am Pooja Hegde</h1>
+          <h2 class="lato-black desc-text">Tech Enthusiast</h2>
+        </div>
+        <div class="imgHover">
+          <img class="animated-image profile-image" src="./images/profile-pic.jpg" alt="Profile Photo" />
+        </div>
       </div>
-      <div class="imgHover">
-        <img class="animated-image profile-image" src="./images/profile-pic.jpg" />
+      <div class="profile-description">
+        <p>
+          Welcome to my personal portfolio! I'm an ambitious student dedicated to pursuing excellence. Here, you'll find a showcase of my academic achievements, and a glimpse into my journey of growth and learning. Join me as I navigate the exciting world of education and self-discovery.
+        </p>
       </div>
     </section>
     <br />
@@ -132,8 +131,8 @@
       <span class="material-symbols-outlined calender">
         calendar_month 2024-2026</span>
       <p class="lato-thin desc">
-        Currently pursuing my MCA (Master Of Computer Applications) to
-        deepen my technical expertise and enhance my problem-solving skills
+        Currently pursuing my MCA (Master Of Computer Applications) with a CGPA of <b>9.5</b>,
+        deepening my technical expertise and enhancing my problem-solving skills
         in web development and data science.
       </p>
     </div>
@@ -259,35 +258,37 @@
   </section>
   <section class="section-certifications" id="section-certifications">
     <h1 class="lato-black h1 text-typing" data-text="Certifications" align="center"></h1>
-    <div class="certification-list">
-      <div class="certification-item outlined-box">
-        <img src="./images/java.png" alt="Java Programming for Beginners Certificate" class="certificate-img left-img" />
-        <div class="cert-text">
-          <h3>Java Programming for Beginners – Simplilearn</h3>
-          <p>Developed a solid foundation in Java programming, including variables, loops, functions, and object-oriented concepts. Built basic applications and practiced writing clean, structured code.</p>
-        </div>
+    <div class="certification-grid">
+      <div class="certificate-item">
+        <img src="./images/java.png" alt="Java Programming Certificate" class="certificate-img" data-certificate-id="1" />
       </div>
-      <div class="certification-item outlined-box">
-        <img src="./images/DataScience.png" alt="Certified Data Science using R Certificate" class="certificate-img left-img" />
-        <div class="cert-text">
-          <h3>Certified Data Science using R – Infosys Springboard</h3>
-          <p>Gained practical knowledge in data manipulation, visualization, and statistical analysis using R. Explored data-driven decision-making, predictive modeling, and real-world case studies.</p>
-        </div>
+      <div class="certificate-item">
+        <img src="./images/DataScience.png" alt="Data Science Certificate" class="certificate-img" data-certificate-id="2" />
       </div>
-      <div class="certification-item outlined-box">
-        <img src="./images/networking.png" alt="Networking Basics Certificate" class="certificate-img left-img" />
-        <div class="cert-text">
-          <h3>Networking Basics – Cisco Networking Academy</h3>
-          <p>Acquired knowledge of computer networking essentials such as IP addressing, subnetting, switching, and routing. Learned how data travels through networks and how to troubleshoot basic connectivity issues.</p>
-        </div>
+      <div class="certificate-item">
+        <img src="./images/networking.png" alt="Networking Certificate" class="certificate-img" data-certificate-id="3" />
       </div>
-      <div class="certification-item outlined-box">
-        <img src="./images/ML-Certificate.jpg" alt="Networking Basics Certificate" class="certificate-img left-img" />
-        <div class="cert-text">
-          <h3>Machine Learning with Python – Zeta Coding Innovative solution</h3>
-          <p>Completed a 5-week internship focused on Machine Learning with Python, gaining hands-on experience in real-time projects and strengthening core programming and analytical skills.
-Enhanced teamwork and problem-solving abilities through collaborative project execution.</p>
-        </div>
+      <div class="certificate-item">
+        <img src="./images/ML-Certificate.jpg" alt="Machine Learning Certificate" class="certificate-img" data-certificate-id="4" />
+      </div>
+      <div class="certificate-item">
+        <img src="./images/da-2.jpg" alt="Data Analytics Certificate" class="certificate-img" data-certificate-id="5" />
+      </div>
+      <div class="certificate-item">
+        <img src="./images/da.png" alt="Data Analytics Certificate" class="certificate-img" data-certificate-id="6" />
+      </div>
+      <div class="certificate-item">
+        <img src="./images/naukri.jpg" alt="Naukri Certificate" class="certificate-img" data-certificate-id="7" />
+      </div>
+      <div class="certificate-item">
+        <img src="./images/power-bi.jpg" alt="Power BI Certificate" class="certificate-img" data-certificate-id="8" />
+      </div>
+    </div>
+    <!-- Certificate Modal -->
+    <div id="certificateModal" class="certificate-modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <img id="enlargedCertificate" class="enlarged-certificate" src="" alt="Certificate" />
       </div>
     </div>
   </section>
@@ -376,6 +377,12 @@ Enhanced teamwork and problem-solving abilities through collaborative project ex
 
     </script>
   <script src="./js/portfolio.js"></script>
-</body>
+  <script src="js/scroll.js"></script>
+  <script src="js/typing.js"></script>
+  <script src="js/typing2.js"></script>
+  <script src="js/typing3.js"></script>
+  <script src="js/typing4.js"></script>
+  <script src="js/typing5.js"></script>
+  </body>
 
 </html>

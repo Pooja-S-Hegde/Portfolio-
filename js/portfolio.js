@@ -1,5 +1,62 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // ✅ Navbar Active Link Highlighting
+  // Certificate Modal Functionality
+  const modal = document.getElementById('certificateModal');
+  const enlargedCertificate = document.getElementById('enlargedCertificate');
+  const closeBtn = document.querySelector('.close');
+  const certificateItems = document.querySelectorAll('.certificate-item');
+  const modalContent = document.querySelector('.certificate-modal .modal-content');
+
+  // Function to open modal
+  function openModal(imgSrc) {
+    if (modal && enlargedCertificate) {
+      enlargedCertificate.src = imgSrc;
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+  }
+
+  // Function to close modal
+  function closeModal() {
+    if (modal) {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto'; // Re-enable scrolling
+    }
+  }
+
+  // Add click event listeners to all certificate items
+  if (certificateItems.length > 0) {
+    certificateItems.forEach(item => {
+      item.addEventListener('click', function(e) {
+        const img = this.querySelector('img');
+        if (img && img.src) {
+          openModal(img.src);
+        }
+      });
+    });
+  }
+
+  // Close the modal when clicking the close button
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeModal);
+  }
+
+  // Close the modal when clicking outside the content
+  if (modal && modalContent) {
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+  }
+
+  // Close the modal when pressing the Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal && modal.style.display === 'flex') {
+      closeModal();
+    }
+  });
+
+  // Navbar Active Link Highlighting
   const sections = document.querySelectorAll("section");
   const navLinks = document.querySelectorAll(".nav-link");
 
@@ -15,8 +72,8 @@ document.addEventListener("DOMContentLoaded", function () {
               if (activeLink) {
                   activeLink.classList.add("active");
               }
-              else{
-                console.warn(`no match navlink found for:$targetId}`);
+              else {
+                console.warn(`No matching navlink found for: ${targetId}`);
               }
           }
       },
@@ -24,28 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
   );
 
   sections.forEach((section) => observer.observe(section));
-// let lastActive = null;  // Store last active section
-
-// const observer = new IntersectionObserver(
-//     (entries) => {
-//         entries.sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-
-//         let mostVisible = entries.find((entry) => entry.isIntersecting);
-//         if (mostVisible && lastActive !== mostVisible.target.id) {
-//             lastActive = mostVisible.target.id; // Prevents unnecessary updates
-//             navLinks.forEach((link) => link.classList.remove("active"));
-//             const targetId = mostVisible.target.getAttribute("id");
-//             const activeLink = document.querySelector(`.nav-link[href="#${targetId}"]`);
-//             if (activeLink) {
-//                 activeLink.classList.add("active");
-//             }
-//         }
-//     },
-//     { rootMargin: "0px 0px -50% 0px", threshold: [0.2, 0.4, 0.6] }
-// );
-
-
-  //  Typing Effect
+  // Typing Effect
  
     const typingElements = document.querySelectorAll(".text-typing");
     const typingObserver = new IntersectionObserver((entries) => {
@@ -121,25 +157,10 @@ document.addEventListener("DOMContentLoaded", function () {
           if (!input) return; // Prevent errors if input is missing
 
           // Create error message
-          const error = document.createElement("div");
-          error.className = "error-message";
-          error.style.cssText = `padding: 8px;
-            font-size: 14px;
-  text-align: center;
-  margin-top: 5px;
-  border-radius: 5px;
-              position: absolute;
-              bottom: -17px; /* Move error message to top */
-              left:0%;
-              width: 100%;
-               color: white;
-              text-shadow:
-              -2px -2px 0 red,
-              -2px -2px 0 red,
-              -2px  2px 0 red,
-               2px 2px 0 red
-               `;
-          error.textContent = message;
+         const error = document.createElement("div");
+error.className = "error-message";
+error.textContent = message;
+
 
           // Append error message at the top of the column
           const parent = input.closest(".form-group") || input.parentNode;
