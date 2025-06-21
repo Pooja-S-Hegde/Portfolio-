@@ -1,4 +1,59 @@
+// Typing animation function
+function initTypingAnimation() {
+    // Get all elements with text-typing class that haven't been animated yet
+    const elements = document.querySelectorAll('.text-typing:not(.typing-complete)');
+    
+    elements.forEach((element, index) => {
+        const text = element.getAttribute('data-text');
+        if (!text) return;
+        
+        // Mark as being processed to prevent duplicate animations
+        element.classList.add('typing-in-progress');
+        
+        // Clear any existing content and set initial styles
+        element.textContent = '';
+        element.style.visibility = 'visible';
+        element.style.display = 'inline-block'; // Ensure consistent layout
+        
+        // Add cursor effect
+        const cursor = document.createElement('span');
+        cursor.className = 'typing-cursor';
+        cursor.textContent = '|';
+        element.appendChild(cursor);
+        
+        // Set up the typing effect with a small delay between elements
+        setTimeout(() => {
+            let charIndex = 0;
+            const typeSpeed = 50; // Speed in milliseconds
+            
+            function type() {
+                if (charIndex < text.length) {
+                    // Update text content
+                    element.textContent = text.substring(0, charIndex + 1);
+                    // Re-append cursor
+                    element.appendChild(cursor);
+                    charIndex++;
+                    setTimeout(type, typeSpeed);
+                } else {
+                    // Animation complete
+                    element.classList.remove('typing-in-progress');
+                    element.classList.add('typing-complete');
+                    // Remove cursor when done
+                    if (cursor.parentNode === element) {
+                        element.removeChild(cursor);
+                    }
+                }
+            }
+            
+            type();
+        }, index * 300); // Stagger the start of each animation
+    });
+}
+
 document.addEventListener("DOMContentLoaded", function () {
+    // Initialize typing animation
+    initTypingAnimation();
+    
   // Certificate Modal Functionality
   const modal = document.getElementById('certificateModal');
   const enlargedCertificate = document.getElementById('enlargedCertificate');
